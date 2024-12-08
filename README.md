@@ -22,7 +22,7 @@ Beyond these basic requirements, we also want to conduct some good practices in 
 2. Support batch and stream workflows
 3. Govern structured and unstructured data with Unity Catalog
 
-This project is [inspired by Prashant Kumar Pandey](https://www.linkedin.com/in/prashant-kumar-pandey), I try to provide a detailed explanation for it and the process of approaching the solution.
+This project is inspired by [Prashant Kumar Pandey](https://www.linkedin.com/in/prashant-kumar-pandey), I try to provide a detailed explanation for it and the process of approaching the solution.
 
 ## Data Sources
 
