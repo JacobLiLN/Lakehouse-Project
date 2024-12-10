@@ -69,12 +69,10 @@ To decouple operational workloads from our Lakehouse design, we assume that User
 
 ![4](images/bpm.png "BPM")
 
-## Initial Project Design
-Given the requirements mentioned earlier, below is the initial project design: 
+## Project Design
+Given the requirements mentioned earlier, here's how I design the Lakehouse Platform: We digest the data from Kafka Stream and Database, loading them into the landing zone (therefore decoupling data ingestion from the Lakehouse); the basic layer of the Lakehouse is ADLS Gen2, there we can process the data, transform and aggregate the data based on reporting requirements. The Unity Catalog enables organizations to restrict the data access based on user groups, in addition, it can restrict the type of cluster users create or attach to their notebooks.
 
-Placeholder for the design.
-
-As you can see the data ingestion process is decoupled from our Lakehouse Platform. But it also brings another question: how do we design our Lakehouse Storage? We do not want to expose the managed data under the table directories as well as the unmanaged data to the users, and we want to only grant the access to the bronze/silver/gold layer data to a certain group of users. Therefore, a proper storage design is critical. 
+With our initial design, the data ingestion process is decoupled from our Lakehouse Platform, a centralized Unity Catalog managing resource and data permissions. But it also brings another question: how do we design our Lakehouse Storage? By default, the managed tables are stored under the same directory of Metastore. We do not want to expose the managed data under the table directories as well as the unmanaged data to the users, and we want to only grant access to the bronze/silver/gold layer data to a certain group of users. Therefore, a proper storage design is critical. 
 
 ## Storage Design
 In this project, ADLS Gen2 is selected as the storage layer as it is highly available and fault-tolerant. More importantly, it is highly compatible with Spark and Delta Lake. In this project, three containers are created: 
@@ -163,6 +161,8 @@ This project enables users to switch between batch processing and stream process
 The code is written in the format of Databricks Notebooks. You can test the batch mode with the notebook 09-batch-test, or the stream mode with 10-stream-test.
 
 ## Summary
-This project tries to propose a fault-tolerant and scalable Data Engineering Solution for SBIT. In the future, automated CI/CD can be added.
+This project tries to propose a fault-tolerant and scalable Data Engineering Solution for SBIT. It can help organizations construct a Lakehouse to monitor some performance metrics in terms of User Engagement, the fine-grained access management enables developers and data analysts to work under the same platform, and its compatibility with both batch and stream modes can satisfy organizations' different requirements, improving their flexibility on business intelligence.
+
+In the future, automated CI/CD can be added to empower the project and take it to the next level.
 
 
