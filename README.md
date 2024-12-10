@@ -1,6 +1,8 @@
 # Lakehouse-Project
 Implementation of a Lakehouse Solution with Medallion Data Architecture
 
+![5](images/Lakehouse_Design.png "Lakehouse")
+
 ## Project Description
 This project is about implementing Lakehouse solution for a wearable tech company (let's call it SBIT). SBIT produces smart watches that can monitor heart rate of the users so that they can evaluate their performance during the workouts in the gyms. Now we want to implement a Lakehouse solution for the company with medallion data architecture, collect and ingest data from data sources to the Lakehouse, and create reports for users in the below format:
 
